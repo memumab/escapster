@@ -1,1 +1,16 @@
 This repository contains supplementary information on the manuscript "Somatic hypermutation shapes the viral escape profile of SARS-CoV-2 neutralizing antibodies" by Bruhn et al., 2025
+
+Notes:
+The provided workflow in a snakemake file can be run in a linux operating system. Following are the step by step instructions.
+(1) Setup a conda environment by installing the right tools for analysis. (Hint: the connda environment with appropriate tools can be installed using the environment.yml file)
+(2) Once you create an environment, run using this command "snakemake -s snakefile.py --cores 10 --latency-wait 60 --rerun-incomplete --keep-going"
+(*) Additionaly, in cases of lower processing memory, please make sure that you increase the value of "--latency-wait"
+(3) Also make sure that you have indexed references in the working repository.
+(5) Please obtain "Basecount" tool from https://github.com/tombch/basecount and save in the required location. 
+(4) In cases of errors due to Canu v2.0 assembly, please re-run the workflow due to processing limiations of the computer. The re-run operation does not start from the begining but rather from the files which resulted in error and this is very common working with Canu assembly. 
+
+Advantages:
+* You can customize the tools in the workflow as well as alterantive tools can be used if the workflow does not work on a user file.
+
+Limitations:
+* In this workflow, we used a third party tool i.e. basecount which creates a default output that is not compatible with the rules of snakemake workflow. Due to this reason the workflow ends up showing error however, the necessary files are always generated.   
